@@ -11,7 +11,7 @@
 3. 进入“数据库”，创建 Realtime Database 并设为可读写（生产环境需调整规则）。
 4. 将实际配置填入 `firebase-config.json`。你可以复制 `firebase-config.sample.json` 并替换其中的值。
 
-如果未提供 Firebase 配置，应用会退回到本地存储和本地账号登录模式。
+如果未提供 Firebase 配置，应用会退回到本地存储和本地账号登录模式。请注意：本地登录和记录仅限于当前浏览器和设备，无法跨浏览器同步。
 
 ## 部署到 GitHub Pages
 

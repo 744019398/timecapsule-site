@@ -76,7 +76,7 @@
     } else {
       authStatus.textContent = isFirebaseConfigured()
         ? '未登录，登录后可将记录保存到云端。'
-        : '未登录，离线存储仍可使用。';
+        : '未登录，当前为本地登录，数据仅限此浏览器。';
       logoutBtn.classList.add('hidden');
     }
   }
@@ -157,30 +157,6 @@
     }
 
     loadLocalCards();
-    if (cards.length === 0) {
-      cards = [
-        {
-          id: Date.now(),
-          title: '首次记录',
-          description: '这是你打开页面后自动生成的样例卡片。',
-          datetime: new Date().toISOString(),
-          type: 'memory',
-          tags: ['欢迎', '开始'],
-          image: null,
-          private: false
-        },
-        {
-          id: Date.now() + 1,
-          title: '夏日海边',
-          description: '记录美好时刻，支持图片、标签、搜索与导出。',
-          datetime: new Date().toISOString(),
-          type: 'event',
-          tags: ['旅行', '海边'],
-          image: null,
-          private: false
-        }
-      ];
-    }
     renderTimeline(searchInput.value);
   }
 
