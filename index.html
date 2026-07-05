@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>时光记录</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 </head>
 <body>
   <div class="page-shell">
@@ -24,6 +27,18 @@
 
     <section class="workspace">
       <aside class="panel controls">
+        <div class="auth-panel">
+          <div class="panel-title">账号登录</div>
+          <input id="authEmail" type="email" placeholder="邮箱" />
+          <input id="authPassword" type="password" placeholder="密码" />
+          <div class="auth-actions">
+            <button id="loginBtn">登录</button>
+            <button id="signupBtn" class="secondary">注册</button>
+          </div>
+          <div id="authStatus" class="auth-status">未登录，离线模式可用。</div>
+          <button id="logoutBtn" class="secondary hidden">退出登录</button>
+          <div class="auth-note">在线个人存储需要填写 Firebase 配置。</div>
+        </div>
         <div class="panel-title">添加新记忆</div>
         <input id="titleInput" placeholder="标题（必填）" />
         <textarea id="descInput" placeholder="详细描述，可写下当时心情"></textarea>
