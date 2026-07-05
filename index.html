@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>时光记录</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand">
+        <span class="logo">⏳</span>
+        <div>
+          <h1>时光记录</h1>
+          <p>记录每一刻，回看每一次成长。</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="stat">记录数: <span id="cardCount">0</span></div>
+        <button id="themeToggle" class="ghost-btn">夜间模式</button>
+      </div>
+    </header>
+
+    <section class="workspace">
+      <aside class="panel controls">
+        <div class="panel-title">添加新记忆</div>
+        <input id="titleInput" placeholder="标题（必填）" />
+        <textarea id="descInput" placeholder="详细描述，可写下当时心情"></textarea>
+
+        <div class="field-row">
+          <label class="field">
+            <span>类型</span>
+            <select id="typeSelect">
+              <option value="memory">回忆</option>
+              <option value="event">事件</option>
+              <option value="plan">计划</option>
+              <option value="idea">灵感</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>标签</span>
+            <input id="tagsInput" placeholder="逗号分隔，如：旅行,生日" />
+          </label>
+        </div>
+
+        <div class="field-row">
+          <label class="file-input">
+            <span>图片 (可选)</span>
+            <input id="fileInput" type="file" accept="image/*" />
+          </label>
+          <label class="field">
+            <span>时间</span>
+            <input id="dateInput" type="datetime-local" />
+          </label>
+        </div>
+
+        <label class="checkbox-label">
+          <input id="privateInput" type="checkbox" />
+          仅自己可见（私密记录）
+        </label>
+
+        <div class="button-row">
+          <button id="addBtn">添加时间卡</button>
+          <button id="clearBtn" class="secondary">清空全部</button>
+        </div>
+
+        <div class="button-row">
+          <button id="exportBtn" class="secondary">导出记录</button>
+          <button id="importBtn" class="secondary">导入记录</button>
+          <input id="importFile" type="file" accept="application/json" hidden />
+        </div>
+
+        <div class="panel-title">快速查找</div>
+        <input id="searchInput" placeholder="搜索标题、描述、标签..." />
+
+        <div class="countdown-ctrl">
+          <label>倒计时目标：</label>
+          <input id="countdownTarget" type="datetime-local" />
+          <div id="countdownDisplay" class="countdown">-- : -- : -- : --</div>
+        </div>
+      </aside>
+
+      <main class="timeline" id="timeline"></main>
+    </section>
+
+    <div id="clock" class="floating-clock"></div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
